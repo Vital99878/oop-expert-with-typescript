@@ -8,6 +8,10 @@ abstract class PaymentService {
   public abstract payMoney(amount: number): void;
 }
 
+abstract class PaymentFactory {
+  public abstract createService(): PaymentService;
+}
+
 class Paypal extends PaymentService {
   public override payMoney(amount: number) {
     console.log(`You paid ${amount} dollars by Paypal.`);
@@ -24,10 +28,6 @@ class VisaCard extends PaymentService {
   public override payMoney(amount: number) {
     console.log(`You paid ${amount} dollars by VisaCard.`);
   }
-}
-
-abstract class PaymentFactory {
-  public abstract createService(): PaymentService;
 }
 
 class PaypalFactory extends PaymentFactory {
@@ -48,7 +48,7 @@ class VisaCardFactory extends PaymentFactory {
   }
 }
 
-/************************** Business logic layer **************************/ 
+/************************** Business logic layer **************************/
 
 function getPaymentFactory(paymentType: PaymentType): PaymentFactory {
   switch (paymentType) {

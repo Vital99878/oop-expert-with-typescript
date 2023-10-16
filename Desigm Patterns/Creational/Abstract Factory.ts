@@ -1,5 +1,7 @@
-type Movie = unknown; // You can use your own type
-type AudioTrack = unknown; // You can use your own type
+interface ApiProviderFactory {
+  createMovieApiProvider: () => MovieApi;
+  createAudioApiProvider: () => AudioApi;
+}
 
 interface MovieApi {
   searchByName: (name: string) => Movie[];
@@ -17,17 +19,95 @@ interface AudioApi {
   searchByLyric: (anyPartOfLyric: string) => AudioTrack[];
 }
 
-class NormalMovieApiProvider implements MovieApi { /* Implementation */ }
+type Movie = unknown; // You can use your own type
+type AudioTrack = unknown; // You can use your own type
 
-class NormalAudioApiProvider implements AudioApi { /* Implementation */ }
+class NormalMovieApiProvider implements MovieApi {
+  searchByActors(actors: string[]): Movie[] {
+    return [];
+  }
 
-class PremiumMovieApiProvider implements MovieApi { /* Implementation */ }
+  searchByAwards(awards: string[]): Movie[] {
+    return [];
+  }
 
-class PremiumAudioApiProvider implements AudioApi { /* Implementation */ }
+  searchByDirector(director: string): Movie[] {
+    return [];
+  }
 
-interface ApiProviderFactory {
-  createMovieApiProvider: () => MovieApi;
-  createAudioApiProvider: () => AudioApi;
+  searchByName(name: string): Movie[] {
+    return [];
+  }
+
+  searchByReleaseDate(releaseDate: Date): Movie[] {
+    return [];
+  } /* Implementation */
+}
+
+class NormalAudioApiProvider implements AudioApi {
+  searchByArtist(artist: string): AudioTrack[] {
+    return [];
+  }
+
+  searchByGenre(genre: string): AudioTrack[] {
+    return [];
+  }
+
+  searchByLyric(anyPartOfLyric: string): AudioTrack[] {
+    return [];
+  }
+
+  searchByMood(mood: string): AudioTrack[] {
+    return [];
+  }
+
+  searchByName(name: string): AudioTrack[] {
+    return [];
+  } /* Implementation */
+}
+
+class PremiumMovieApiProvider implements MovieApi {
+  searchByActors(actors: string[]): Movie[] {
+    return [];
+  }
+
+  searchByAwards(awards: string[]): Movie[] {
+    return [];
+  }
+
+  searchByDirector(director: string): Movie[] {
+    return [];
+  }
+
+  searchByName(name: string): Movie[] {
+    return [];
+  }
+
+  searchByReleaseDate(releaseDate: Date): Movie[] {
+    return [];
+  } /* Implementation */
+}
+
+class PremiumAudioApiProvider implements AudioApi {
+  searchByArtist(artist: string): AudioTrack[] {
+    return [];
+  }
+
+  searchByGenre(genre: string): AudioTrack[] {
+    return [];
+  }
+
+  searchByLyric(anyPartOfLyric: string): AudioTrack[] {
+    return [];
+  }
+
+  searchByMood(mood: string): AudioTrack[] {
+    return [];
+  }
+
+  searchByName(name: string): AudioTrack[] {
+    return [];
+  } /* Implementation */
 }
 
 class NormalApiProviderFactory implements ApiProviderFactory {
