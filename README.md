@@ -62,7 +62,7 @@ In software engineering, SOLID is a mnemonic acronym for five design principles 
 
 ### 1. Single Responsibility (SRP)
 
-> There should never be more than one reason for a class to change. Every class should have only one responsibility.
+> There should never be more than one reason for a class to change. Каждый класс должен выполнять только одно.
 
 <img src="https://user-images.githubusercontent.com/37804060/153056645-8760ddfa-01f3-4c21-9279-ab6ba669a0fc.jpg"/>
 
@@ -241,7 +241,9 @@ class Notebook {
 
 ### 2. Open/Closed (OCP)
 
-> Software entities should be open for extension, but closed for modification.
+> Сущности должны быть открыты для расширения, закрыты для модификации. 
+> Это значит что, если требуется расширить функционал класса, то для этого должен быть добавлен новый метод, а не модифицирован существующий.
+
 
 <img src="https://user-images.githubusercontent.com/37804060/153056325-679b94dc-ea4f-4315-a682-93057845f9d5.jpg"/>
 
