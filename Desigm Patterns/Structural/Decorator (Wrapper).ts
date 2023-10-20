@@ -1,3 +1,5 @@
+// Статья с другой имплементацией Декоратора. https://dev.to/jmalvarez/decorator-pattern-in-typescript-na5
+
 interface ImageProcessor {
   processImage: () => File;
 }
@@ -23,7 +25,7 @@ abstract class ImageDecorator implements ImageProcessor {
   }
 
   abstract processImage(): File;
-} 
+}
 
 class ImageCompressor extends ImageDecorator {
   processImage(): File {
@@ -50,5 +52,9 @@ class ImageResizer extends ImageDecorator {
 
 const image = new ImageFile([], "Picture.jpg").processImage();
 const compressedImage = new ImageCompressor(image).processImage();
-const enhancedImage = new ImageCompressor(compressedImage).processImage();
+const enhancedImage = new ImageEnhancer(compressedImage).processImage();
 const resizedImage = new ImageResizer(enhancedImage).processImage();
+
+const prototype = Object.getPrototypeOf(image)
+const compressedPrototype = Object.getPrototypeOf(compressedImage)
+console.log(prototype === compressedPrototype)
