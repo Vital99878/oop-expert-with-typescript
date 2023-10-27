@@ -1,3 +1,4 @@
+
 interface StandardUser {
   fullName: string;
   skills: string[];
